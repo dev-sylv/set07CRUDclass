@@ -16,7 +16,6 @@ const getAllUsers = async (req, res) => {
   }
 };
 
-//create a new user
 const newUser = async (req, res) => {
   try {
     const { name, email, password, isFemale, phoneNum } = req.body;
@@ -37,4 +36,4 @@ const newUser = async (req, res) => {
       message: "couldn't create  user",
     });
   }
-};
+}; // create a new user
