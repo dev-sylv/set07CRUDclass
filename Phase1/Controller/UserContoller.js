@@ -1,12 +1,14 @@
 const express = require("express");
 const userModel = require("../Model/UserModel");
 
+// CRUD: CREATE, READ
+
 //get all users
 const getAllUsers = async (req, res) => {
   try {
     const getUsers = await userModel.find();
     res.status(200).json({
-      message: "gotten all users",
+      message: `${getUsers.length} Users successfully gotten`,
       data: getUsers,
     });
   } catch (error) {
@@ -28,7 +30,7 @@ const newUser = async (req, res) => {
       phoneNum,
     });
     res.status(201).json({
-      message: "created a new user",
+      message: "Created a new user",
       data: createUser,
     });
   } catch (error) {
@@ -36,4 +38,6 @@ const newUser = async (req, res) => {
       message: "couldn't create  user",
     });
   }
-}; // create a new user
+};
+
+module.exports = { getAllUsers, newUser };
